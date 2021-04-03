@@ -1,6 +1,10 @@
 body {
     padding-top: 3.5rem;
 }
+.answers>li>a {
+    text-decoration: none;
+    counter-reset: none;
+}
 
 .navbar-brand img{
     width: 150px;
@@ -15,11 +19,6 @@ body {
     user-select: none;
 }
 
-@media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-    }
-}
 
 .background-html5{
     background-image: url('../img/1200px-HTML5_logo_and_wordmark.svg.png');
@@ -67,7 +66,7 @@ body {
 
 .progress-bar-asd {
     height: 15px;
-    background: linear-gradient(90deg, rgba(252, 168, 186, 1) 0%, rgba(217, 85, 114, 1) 44%, rgba(152, 4, 37, 1) 100%);
+    background: linear-gradient(90deg, rgb(155 177 208) 0%, rgb(85 138 217) 44%, rgb(4 57 152) 100%);
     ;
     width: 0%;
 }
@@ -117,13 +116,21 @@ body {
     background-color: #e2aa00;
 }
 
+.r-10{
+    right: 10px;
+}
+.mt-10{
+    margin-top: 10px;
+}
+
+
 .altura-100 {
     min-height: 300px;
 }
 
 .divisao-encerramento {
     border-top: 3px solid rgb(37, 37, 37);
-    background: rgb(166 22 54);
+    background: rgb(90 97 138);
     min-height: 15px;
 }
 
@@ -195,7 +202,7 @@ body {
 /* SINALIZAÇÂO */
 
 .completed {
-    color: green;
+    color: #0a78d3;
     font-size: 30pt;
     background-color: white;
     border-radius: 50%;
@@ -360,7 +367,7 @@ body {
 /* CLASSES DO QUIZ */
 
 .quiz-total-container {
-    background: rgb(166 22 54);
+    background: rgb(52 58 64);
     /* border-top: 10px solid rgb(80, 80, 80); */
 }
 
@@ -424,6 +431,16 @@ body {
     .frente-cartao {
         padding-bottom: 30px
     }
+
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 648px) {
+    #logo-card-jquery {
+        display: none;
+    }
 }
 
 
@@ -457,12 +474,16 @@ left: 15px;
 height: 19px;
 width: 19px;
 border-radius: 50%;
+background-color: #fff;
 }
 .unCheckedRadio{
     background-color: #fff;
 }
+.disabledRadio{
+    background-color: rgb(155, 146, 146);
+}
 
-.radiocontainer:hover {
+.radiocontainer-hover:hover {
     background-color: rgba(150, 144, 144, 0.233);
 }
 
@@ -490,4 +511,22 @@ border-radius: 50%;
     height: 7px;
     border-radius: 50%;
     background: white;
+}
+
+a[href="#inicio"]{
+    padding:10px;
+    position:fixed;
+    top: 90%;
+    right:40px;
+    display:none;
+    font-size: 30px;
+}
+a[href="#inicio"]:hover{
+    text-decoration:none;
+}
+
+footer{
+    text-align: center;
+    border-top: solid 1px #000;
+    margin-top: 20px;
 }

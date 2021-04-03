@@ -23,14 +23,14 @@
         Carregando seus dados, aguarde ...
     </div> -->
     <div class="w-100 total">
-        <!-- PROGRESSO -->
-        <div class="header-prog shadow">
-            <div class="progress-container-asd">
-                <div class="progress-bar-asd" id="progresso" style="width: 7.14286%;"></div>
-            </div>
-        </div>
-        <!-- FIM PROGRESSO -->
-       
+      <!-- PROGRESSO -->
+      <div class="header-prog shadow">
+          <div class="progress-container-asd">
+              <div class="progress-bar-asd" id="progresso" style="width: 7.14286%;"></div>
+          </div>
+      </div>
+      <!-- FIM PROGRESSO -->
+    
     
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#"><img src="./assets/brand/vendor-html.png"></a>
@@ -65,9 +65,17 @@
               <li class="dropdown-submenu dropright ">
                 <a class="dropdown-item dropdown-toggle" href="#">Seçao 2</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item disabled" href="#video">Vídeo</a></li>
+                  <li><a id="navFor2" class="dropdown-item disabled" href="#2">Vídeo</a></li>
                 </ul>
               </li>
+              <li class="dropdown-submenu dropright ">
+                <a class="dropdown-item dropdown-toggle" href="#">Seçao 3</a>
+                <ul class="dropdown-menu">
+                  <li><a id="navFor3" class="dropdown-item disabled" href="#3">Quiz</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </nav>
@@ -96,7 +104,6 @@
       </div>
 
       <div class="container">
-        
         <div class="row" id="sobre-html5">
           <div class="col-md-12">
             <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
@@ -105,7 +112,7 @@
                   <h2 class="display-5">SOBRE O HTML5</h2>
                   <p class="lead">Por Eduardo em 2012 - DEVMEDIA</p>
                 </div>
-                <div class="text-justify bg-light mx-auto pt-5 text-dark font-weight-bolder background-html5" style="width: 80%; height: 600px; border-radius: 21px 21px 0 0;">
+                <div class="text-justify bg-light mx-auto pt-5 text-dark font-weight-bolder background-html5" style="width: 80%;  border-radius: 21px 21px 0 0;">
                   
                   <p class="col-sm-9">
                     O HTML5 é a nova versão do HTML4 e um dos seus principais objetivos é facilitar a manipulação dos elementos, possibilitando o desenvolvedor modificar as características dos objetos de forma não intrusiva, fazendo com que isso fique transparente para o usuário final.
@@ -128,94 +135,90 @@
             </div>
           </div>
         </div>
+      </div>
+      <div id="sobre-css">
+        <div id="myCarousel" class="carousel slide " data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner ">
+            <div class="carousel-item active ">
+              <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  " preserveAspectRatio="xMidYMid slice" focusable="false"><title> </title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
+
+              <div class="container ">
+                <div class="carousel-caption text-left background-css3">
+                  <h1>O QUE É O CSS3</h1>
+                  <p>
+                    O CSS nada mais é do que uma linguagem de customização de elementos seja ele HTML, javascript, XML, etc. Com o seu uso é possível estilizar praticamente qualquer coisa em um website.
+
+                  </p>
+                  <p><a class="btn btn-lg btn-primary" href="http://www.linhadecodigo.com.br/artigo/3566/introducao-as-novidades-do-css3.aspx#ixzz6qrXmm6D0" target="_blank">Ler Mais</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  " preserveAspectRatio="xMidYMid slice" focusable="false"><title> </title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
+
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>A HISTÓRIA DO CSS3</h1>
+                  <p>O CSS3 ele ainda está em desenvolvimento, as duas pessoas que estão trabalhando com isso é Eric A. Meyer que começou a trabalhar com Web a partir de 1993, e ele é conhecido internacionalmente pelos temas CSS e HTML, e o outro é Bert Bos que no ano de 1996 se ajuntou W3C com o objetivo de trabalhar com o CSS.</p>
+                  <p><a class="btn btn-lg btn-primary" href="https://etimbicudocss3.wordpress.com/2014/04/10/historia-da-linguagem-css3/" target="_blank">Ler Mais</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  " preserveAspectRatio="xMidYMid slice" focusable="false"><title> </title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
+
+              <div class="container">
+                <div class="carousel-caption text-right">
+                  <h1>Principais vantagens e características do CSS3</h1>
+                  <p>
+                    O CSS3 é realmente uma ferramenta muito poderosa, com ela pode-se projetar inúmeros trabalhos de forma fácil, eficaz e muito rápida. Essa última versão do CSS trouxe consigo a simplicidade e já é adepta pela maioria dos desenvolvedores web. A seguir veja algumas qualidades e características do CSS3
+                  </p>
+                  <p><a class="btn btn-lg btn-primary" href="https://blog.4linux.com.br/melhor-curso-de-html5-e-css3-por-que-aprender-html5-e-css3" target="_blank">Saiba mais</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-          <div id="sobre-css">
-            <div id="myCarousel" class="carousel slide " data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner ">
-                <div class="carousel-item active ">
-                  <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  " preserveAspectRatio="xMidYMid slice" focusable="false"><title> </title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
-
-                  <div class="container ">
-                    <div class="carousel-caption text-left background-css3">
-                      <h1>O QUE É O CSS3</h1>
-                      <p>
-                        O CSS nada mais é do que uma linguagem de customização de elementos seja ele HTML, javascript, XML, etc. Com o seu uso é possível estilizar praticamente qualquer coisa em um website.
-
-                      </p>
-                      <p><a class="btn btn-lg btn-primary" href="http://www.linhadecodigo.com.br/artigo/3566/introducao-as-novidades-do-css3.aspx#ixzz6qrXmm6D0" target="_blank">Ler Mais</a></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  " preserveAspectRatio="xMidYMid slice" focusable="false"><title> </title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
-
-                  <div class="container">
-                    <div class="carousel-caption">
-                      <h1>A HISTÓRIA DO CSS3</h1>
-                      <p>O CSS3 ele ainda está em desenvolvimento, as duas pessoas que estão trabalhando com isso é Eric A. Meyer que começou a trabalhar com Web a partir de 1993, e ele é conhecido internacionalmente pelos temas CSS e HTML, e o outro é Bert Bos que no ano de 1996 se ajuntou W3C com o objetivo de trabalhar com o CSS.</p>
-                      <p><a class="btn btn-lg btn-primary" href="https://etimbicudocss3.wordpress.com/2014/04/10/historia-da-linguagem-css3/" target="_blank">Ler Mais</a></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  " preserveAspectRatio="xMidYMid slice" focusable="false"><title> </title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
-
-                  <div class="container">
-                    <div class="carousel-caption text-right">
-                      <h1>Principais vantagens e características do CSS3</h1>
-                      <p>
-                        O CSS3 é realmente uma ferramenta muito poderosa, com ela pode-se projetar inúmeros trabalhos de forma fácil, eficaz e muito rápida. Essa última versão do CSS trouxe consigo a simplicidade e já é adepta pela maioria dos desenvolvedores web. A seguir veja algumas qualidades e características do CSS3
-                      </p>
-                      <p><a class="btn btn-lg btn-primary" href="https://blog.4linux.com.br/melhor-curso-de-html5-e-css3-por-que-aprender-html5-e-css3" target="_blank">Saiba mais</a></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-          
-          </div>
-          <div class="col-md-12" id="sobre-jquery"> 
-            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-              <div class="col p-4 d-flex flex-column position-static">
-                <strong class="d-inline-block mb-2 text-success">JavaScript</strong>
-                <h3 class="mb-0">O Que é jQuery e Para Que Serve?</h3>
-                <div class="mb-1 text-muted">abril 30, 2019</div>
-                <p class="mb-auto">
-
-                  jQuery é uma biblioteca popular do JavaScript. Ela foi criado por John Resig em 2006 com o propósito de facilitar a vida dos desenvolvedores que usam JavaScript nos seus sites. Não é uma linguagem de programação separada, funciona em conjunto com o JavaScript. Com jQuery, você vai conseguir fazer muito mais com menos – eu vou explicar logo mais.
-                </p>
-                <p class="mb-auto mt-3">
-                  Criar códigos pode ser um pouco cansativo, especialmente quando isso envolve muitas strings. A jQuery compacta várias linhas de código em uma única função. Assim, você não precisa reescrever todos os blocos repetidamente para concluir sua tarefa.
-                </p>
-                <a href="https://www.hostinger.com.br/tutoriais/o-que-e-jquery" target="_blank" class="stretched-link mt-4">Continuar lendo</a>
-              </div>
-              <div class="col-auto d-none d-lg-block">
-                <svg class="bd-placeholder-img" width="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                  <title>Placeholder</title>
-                  <img width="200" src="./assets/vendor/img/jquery.png" />
-                </svg>
       
-              </div>
+      </div>
+      <div class="col-md-12" id="sobre-jquery"> 
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div id="logo-card-jquery" class="col-auto position-absolute r-10 rounded mt-10">
+            <img width="100" src="./assets/vendor/img/jquery.png" />
+            
+          </div>
+          <div class="container">
+            <div class="col-sm-12 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-success">JavaScript</strong>
+              <h3 class="mb-0">O Que é jQuery e Para Que Serve?</h3>
+              <div class="mb-1 text-muted">abril 30, 2019</div>
+              <p class="mb-auto">
+
+                jQuery é uma biblioteca popular do JavaScript. Ela foi criado por John Resig em 2006 com o propósito de facilitar a vida dos desenvolvedores que usam JavaScript nos seus sites. Não é uma linguagem de programação separada, funciona em conjunto com o JavaScript. Com jQuery, você vai conseguir fazer muito mais com menos – eu vou explicar logo mais.
+              </p>
+              <p class="mb-auto mt-3">
+                Criar códigos pode ser um pouco cansativo, especialmente quando isso envolve muitas strings. A jQuery compacta várias linhas de código em uma única função. Assim, você não precisa reescrever todos os blocos repetidamente para concluir sua tarefa.
+              </p>
+              <a href="https://www.hostinger.com.br/tutoriais/o-que-e-jquery" target="_blank" class="stretched-link mt-4">Continuar lendo</a>
             </div>
           </div>
-        
+        </div>
+      </div>
+      <hr>
 
-        <hr>
-
-        
       <!-- FIM CONTEUDO BLOQUEADO -->
       <!-- QUINTA PARTE - CARDS GIRATORIOS -->
       <!-- data-wow-iteration="0" -->
@@ -301,48 +304,53 @@
 
       <!-- SETIMA PARTE - QUIZ -->
       <div class="quiz-total-container">
-        <div class="container">
-            <div class="row m-0 py-5 d-none aos-init aos-animate" data-aos="fade-in" id="3">
-                <div class="col-12 m-0 p-5 quiz-container-out">
-                    <div id="quiz" class="quiz-container quiz-start-state">
-                        <div id="quiz-header">
-                            <h1>QUIZ</h1>
-                        </div>
-                        <div id="quiz-start-screen">
-                            <button id="quiz-start-btn" class="btn btn-warning">Iniciar</button>
-                            <!-- <button id="quiz-finish-btn" class="btn btn-outline-primary">Finalizar</button> -->
-                        </div>
-      
+        
+        <div class="row m-0 py-5 d-none aos-init aos-animate" data-aos="fade-in" id="3">
+            <div class="col-12 m-0 p-5 quiz-container-out">
+                <div id="quiz" class="quiz-container quiz-start-state">
+                  <div id="quiz-header">
+                      <h1>QUIZ</h1>
+                  </div>
+                  <div id="quiz-start-screen">
+                      <button id="quiz-start-btn" class="btn btn-warning">Iniciar</button>
+                      <!-- <button id="quiz-finish-btn" class="btn btn-outline-primary">Finalizar</button> -->
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+          <!-- FIM QUIZ -->
+          <!-- CONTEUDO BLOQUEADO -->
+          <div class="row m-0 p-5 bloqueado d-none w-100" id="3-block">
+            <p class="w-100 text-center wow pulse animated" data-wow-delay="1s" data-wow-iteration="10000" style="visibility: visible; animation-delay: 1s; animation-iteration-count: 10000; animation-name: pulse;">Complete todas as interações anteriores para prosseguir.</p>
         </div>
-      </div>
-    </div>
-    <!-- FIM QUIZ -->
+        <!-- FIM CONTEUDO BLOQUEADO -->
     
-    
-    <!-- ENCERRAMENTO -->
-    <div class="row m-0 p-5 align-items-center justify-content-center divisao-encerramento">
-    </div>
-    <div class="container">
-        <div class="row m-0 p-5 align-items-center justify-content-center encerramento d-none aos-init aos-animate" data-aos="fade-in" id="4">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                <img src="./assets/vendor/img/trofeu.jpg" class="img-fluid" alt="">
-            </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-                <h3>LOREM IPSUM</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus lobortis risus nec viverra. Nunc et metus elit. Vivamus nec enim sit amet ligula efficitur blandit eget sed lectus.</p>
-            </div>
+        <!-- ENCERRAMENTO -->
+        <div class="row m-0 p-5 align-items-center justify-content-center divisao-encerramento">
         </div>
+        <div class="container">
+          <div class="row m-0 p-5 align-items-center justify-content-center encerramento d-none aos-init aos-animate" data-aos="fade-in" id="4">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                  <img src="./assets/vendor/img/trofeu.jpg" class="img-fluid" alt="">
+              </div>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                  <h3>Parabéns! Você chegou ao final do curso!!!</h3>
+                  <p>Agora você já tem conhecimento básico sobre HTML5, JavaScript e CSS3.</p>
+                  <h4>O que você fez durante o curso?</h4>
+                  <p>Conheceu as logos dessas linguagens através dos cartões giratórios!</p>
+                  <p>Assistiu o vídeo completo sobre essas linguagens!</p>
+                  <p>E você também respondeu um Quiz de <span id="quiz-questions"></span> questões, acertando <span id="quiz-acertos"></span> delas  e obtendo o total de <span id="quiz-pontos"></span> pontos </p>
+              </div>
+          </div>
+        </div>
+
+        <!-- /container -->
+        <a href="#inicio" class="glyphicon glyphicon-chevron-up"></a>
+      </main>
     </div>
-
-
-       <!-- /container -->
-
-    </main>
-
-    <footer class="container">
-      <p>&copy; Company 2017-2021</p>
+    <footer class="footer">
+      <p>&copy; Ademir Rocha - 2021</p>
     </footer>
 
     

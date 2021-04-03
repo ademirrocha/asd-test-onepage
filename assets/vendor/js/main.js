@@ -13,6 +13,7 @@ var prog = {
 
 var notaTotalQuiz = 100;
 var qtdQuestionsQuiz = 3;
+var quizAcertos = 0;
 
 document.addEventListener("DOMContentLoaded", function(event) {
     $('.loading').removeClass('d-flex')
@@ -119,7 +120,8 @@ function setCompleted(idCompleto) {
     $(`#${prox}`).removeClass('d-none');
     $(`#${prox}`).addClass('d-flex');
 
-   
+    $('#navFor' + parseInt(idCompleto+1)).removeClass('disabled')
+    window.location.href = window.location.pathname + `#${parseInt(idCompleto+1)}`
 
     prog["prog"][idCompleto] = true;
 
@@ -183,6 +185,12 @@ function completedQuestion(question) {
     $(question).attr('question', 'completed');
     $(question).attr('scorm', 'completed');
 
+    $('.radiocontainer').each(function(){
+        if($(this).is(":visible")){
+            $(this).removeClass('radiocontainer-hover')
+        }
+        
+    });
     
     intFeitas++;
     
@@ -227,9 +235,9 @@ $('#quiz').quiz({
         {
             'q': 'O que significa HTML?',
             'options': [
-                '<label class="radiocontainer " id="label1" onclick="clickRadio(this)" > Hiperlinks e linguagem de marcação de texto<input type="radio" name="quiz" id="radio1" value="radio1"><span class="checkmark unCheckedRadio" id="check1"></span></label>',
-                '<label class="radiocontainer " id="label2" onclick="clickRadio(this)" > Linguagem de marcação de hipertexto<input type="radio" name="quiz" id="radio2" value="radio2"><span class="checkmark unCheckedRadio" id="check2"></span></label>',
-                '<label class="radiocontainer " id="label3" onclick="clickRadio(this)" > Linguagem de marcação da ferramenta inicial<input type="radio" name="quiz" id="radio3" value="radio3"><span class="checkmark unCheckedRadio" id="check3"></span></label>',
+                '<label class="radiocontainer radiocontainer-hover" id="label1" onclick="clickRadio(this)" > Hiperlinks e linguagem de marcação de texto<input type="radio" name="quiz" id="radio1" value="radio1"><span class="checkmark unCheckedRadio" id="check1"></span></label>',
+                '<label class="radiocontainer radiocontainer-hover" id="label2" onclick="clickRadio(this)" > Linguagem de marcação de hipertexto<input type="radio" name="quiz" id="radio2" value="radio2"><span class="checkmark unCheckedRadio" id="check2"></span></label>',
+                '<label class="radiocontainer radiocontainer-hover" id="label3" onclick="clickRadio(this)" > Linguagem de marcação da ferramenta inicial<input type="radio" name="quiz" id="radio3" value="radio3"><span class="checkmark unCheckedRadio" id="check3"></span></label>',
             ],
             'correctIndex': 1,
             'correctResponse': 'Você Acertou!',
@@ -238,8 +246,8 @@ $('#quiz').quiz({
         {
             'q': 'Qual das alternativas a seguir está correta?',
             'options': [
-                '<label class="radiocontainer " id="label4" onclick="clickRadio(this)" > JQuery é uma biblioteca JSON<input type="radio" name="quiz" id="radio4" value="radio4"><span class="checkmark unCheckedRadio" id="check4"></span></label>',
-                '<label class="radiocontainer " id="label5" onclick="clickRadio(this)" > JQuery é uma biblioteca JavaScript<input type="radio" name="quiz" id="radio5" value="radio5"><span class="checkmark unCheckedRadio" id="check5"></span></label>',
+                '<label class="radiocontainer radiocontainer-hover" id="label4" onclick="clickRadio(this)" > JQuery é uma biblioteca JSON<input type="radio" name="quiz" id="radio4" value="radio4"><span class="checkmark unCheckedRadio" id="check4"></span></label>',
+                '<label class="radiocontainer radiocontainer-hover" id="label5" onclick="clickRadio(this)" > JQuery é uma biblioteca JavaScript<input type="radio" name="quiz" id="radio5" value="radio5"><span class="checkmark unCheckedRadio" id="check5"></span></label>',
             ],
             'correctIndex': 1,
             'correctResponse': 'Você Acertou!',
@@ -248,10 +256,10 @@ $('#quiz').quiz({
         {
             'q': 'O que CSS significa?',
             'options': [
-                '<label class="radiocontainer " id="label6" onclick="clickRadio(this)" > Folhas de estilo criativo (Creative Style Sheets)<input type="radio" name="quiz" id="radio6" value="radio6"><span class="checkmark unCheckedRadio" id="check6"></span></label>',
-                '<label class="radiocontainer " id="label7" onclick="clickRadio(this)" > Folhas de estilo em cascata (Cascading Style Sheets)<input type="radio" name="quiz" id="radio7" value="radio7"><span class="checkmark unCheckedRadio" id="check7"></span></label>',
-                '<label class="radiocontainer " id="label8" onclick="clickRadio(this)" > Folhas de estilo de computador (Computer Style Sheets)<input type="radio" name="quiz" id="radio8" value="radio8"><span class="checkmark unCheckedRadio" id="check8"></span></label>',
-                '<label class="radiocontainer " id="label9" onclick="clickRadio(this)" > Folhas de estilo coloridas (Colorful Style Sheets)<input type="radio" name="quiz" id="radio9" value="radio9"><span class="checkmark unCheckedRadio" id="check9"></span></label>',
+                '<label class="radiocontainer radiocontainer-hover" id="label6" onclick="clickRadio(this)" > Folhas de estilo criativo (Creative Style Sheets)<input type="radio" name="quiz" id="radio6" value="radio6"><span class="checkmark unCheckedRadio" id="check6"></span></label>',
+                '<label class="radiocontainer radiocontainer-hover" id="label7" onclick="clickRadio(this)" > Folhas de estilo em cascata (Cascading Style Sheets)<input type="radio" name="quiz" id="radio7" value="radio7"><span class="checkmark unCheckedRadio" id="check7"></span></label>',
+                '<label class="radiocontainer radiocontainer-hover" id="label8" onclick="clickRadio(this)" > Folhas de estilo de computador (Computer Style Sheets)<input type="radio" name="quiz" id="radio8" value="radio8"><span class="checkmark unCheckedRadio" id="check8"></span></label>',
+                '<label class="radiocontainer radiocontainer-hover" id="label9" onclick="clickRadio(this)" > Folhas de estilo coloridas (Colorful Style Sheets)<input type="radio" name="quiz" id="radio9" value="radio9"><span class="checkmark unCheckedRadio" id="check9"></span></label>',
             ],
             'correctIndex': 1,
             'correctResponse': 'Você Acertou!',
@@ -264,6 +272,7 @@ $('#quiz').quiz({
     answerCallback: function(currentQuestion, selected, questions) {
         if (selected === questions.correctIndex) {
             totalScore += notaTotalQuiz / qtdQuestionsQuiz;
+            quizAcertos++;
         }
         completedQuestion(currentQuestion)
     },
@@ -278,6 +287,10 @@ $('#quiz').quiz({
         $('.quiz-total-container').attr('scorm', 'completed')
         if (questions.length == 3)
             setCompleted(3)
+
+        $('#quiz-acertos').html(quizAcertos)
+        $('#quiz-questions').html(qtdQuestionsQuiz)
+        $('#quiz-pontos').html(parseFloat(totalScore).toFixed(2))
     },
 
     // homeCallback: function() {
