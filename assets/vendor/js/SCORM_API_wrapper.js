@@ -889,7 +889,7 @@ further modified by Philip Hutchison
         if (pipwerks.debug.isActive) {
 
             if (window.console && window.console.log) {
-                window.console.log(msg);
+                //window.console.log(msg);
             } else {
                 //alert(msg);
             }

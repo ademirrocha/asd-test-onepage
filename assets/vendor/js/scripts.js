@@ -12,7 +12,20 @@ $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
   
   
     return false;
-  });
+});
+
+function clickRadio(elmnt) {
+  var n, i, x;
+  n = elmnt.id.split('label')[1];
+  
+  for (i = 1; i < 5; i++) {
+    x = document.getElementById("check" + i);
+    if (x) {
+      x.className = x.className.replace("checkedRadio", "unCheckedRadio");
+    }
+  }
+  document.getElementById("check" + n).className += " checkedRadio";
+}
 
 AOS.init({
     duration: 1200

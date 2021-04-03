@@ -1,5 +1,5 @@
 //VARIAVEIS DE CONTROLE
-var totalInt = 6;
+var totalInt = 9;
 var intFeitas = 1;
 var totalScore = 0;
 var prog = {
@@ -10,6 +10,9 @@ var prog = {
         false
     ]
 }
+
+var notaTotalQuiz = 100;
+var qtdQuestionsQuiz = 3;
 
 document.addEventListener("DOMContentLoaded", function(event) {
     $('.loading').removeClass('d-flex')
@@ -27,8 +30,8 @@ if (lmsConnected) {
         prog = JSON.parse(s_data);
         var arquivado = true;
     }
-    console.log('SUSPEND_DATA: ', s_data)
-    console.log("PROG: ", prog)
+    //console.log('SUSPEND_DATA: ', s_data)
+    //console.log("PROG: ", prog)
 }
 pipwerks.SCORM.quit();
 
@@ -56,9 +59,9 @@ player1.onended = function() {
 function resumeSuspendData(element, index) {
     if (element == true && element != 0) {
         setCompleted(index);
-        // console.log('TRUE >>>>')
-        console.log('RESUME SUSPEND DATA >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-        console.log('INDEX: ', index, 'ELEMENT: ', element)
+        //console.log('TRUE >>>>')
+       //console.log('RESUME SUSPEND DATA >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+       //console.log('INDEX: ', index, 'ELEMENT: ', element)
         switch (index) {
             case 0:
                 totalScore = progInner[0];
@@ -67,8 +70,8 @@ function resumeSuspendData(element, index) {
             case 1: //card
                 const cartoesConc = document.querySelectorAll('.cartao')
 
-                console.log('AQUIIIIIIIIIIIIIIII>>>>>>>>>>>>>>>>>')
-                console.log(cartoesConc)
+                //console.log('AQUIIIIIIIIIIIIIIII>>>>>>>>>>>>>>>>>')
+                //console.log(cartoesConc)
 
                 for (let i = 0; i < cartoesConc.length; i++) {
                     //completedCard(cartoesConc[i]);
@@ -86,20 +89,20 @@ function resumeSuspendData(element, index) {
                 break;
         }
     }
-    // console.log('FALSE >>>>')
-    // console.log('RESUME SUSPEND DATA >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-    // console.log('INDEX: ', index, 'ELEMENT: ', element)
+    //console.log('FALSE >>>>')
+    //console.log('RESUME SUSPEND DATA >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+    //console.log('INDEX: ', index, 'ELEMENT: ', element)
     atualizaBarra();
 }
-// console.log('PROG DEBUG >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-// console.log('PROG: ', prog.prog);
+//console.log('PROG DEBUG >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+//console.log('PROG: ', prog.prog);
 
 function atualizaBarra() {
     intFeitasSc = document.querySelectorAll('[scorm=completed');
     var scrolled = ((intFeitasSc.length + 1) / totalInt) * 100;
-    console.log('intFeitasSc: ', intFeitasSc.length + 1);
-    console.log('totalInt: ', totalInt);
-    console.log('SCROLL: ', scrolled)
+    //console.log('intFeitasSc: ', intFeitasSc.length + 1);
+    //console.log('totalInt: ', totalInt);
+    //console.log('SCROLL: ', scrolled)
     $('#progresso').animate({ width: scrolled + "%" }, 100)
 }
 
@@ -116,23 +119,29 @@ function setCompleted(idCompleto) {
     $(`#${prox}`).removeClass('d-none');
     $(`#${prox}`).addClass('d-flex');
 
-    atualizaBarra();
+   
 
     prog["prog"][idCompleto] = true;
 
-    if (idCompleto == 3 && !arquivado)
+    if (idCompleto == 3 && !arquivado){
+        
         prog["prog"][0] = totalScore;
+        
+    }
+        
 
-    console.log(prog);
+    atualizaBarra();
+
+    //console.log(prog);
 
     pipwerks.SCORM.init();
     pipwerks.SCORM.set('cmi.suspend_data', JSON.stringify(prog));
     pipwerks.SCORM.save();
     pipwerks.SCORM.quit();
 
-    // console.log('FORA IF')
+    //console.log('FORA IF')
     if (intFeitasSc.length + 1 == totalInt) {
-        // console.log('CHAMADA SCORM DENTRO')
+        //console.log('CHAMADA SCORM DENTRO')
         if (progInner != '')
             finalizarScorm(progInner[0]);
         else
@@ -143,7 +152,7 @@ function setCompleted(idCompleto) {
 function finalizarScorm(totalScore) {
     pipwerks.SCORM.init();
     var statusScorm = pipwerks.SCORM.get('cmi.core.lesson_status');
-    // console.log('GET STATUS: ', statusScorm)
+    //console.log('GET STATUS: ', statusScorm)
     var success = pipwerks.SCORM.set('cmi.core.lesson_status', 'completed');
     if (success) {
         pipwerks.SCORM.set('cmi.core.score.raw', totalScore);
@@ -168,6 +177,17 @@ function completedCard(cartao) {
     $(cartao).children(":first").toggleClass("d-none")
 }
 
+function completedQuestion(question) {
+
+    question = $('.question-container')[question - 1]
+    $(question).attr('question', 'completed');
+    $(question).attr('scorm', 'completed');
+
+    
+    intFeitas++;
+    
+}
+
 // CARTOES
 $('.cartao').click(function() {
     completedCard(this);
@@ -178,6 +198,7 @@ $('.cartao').click(function() {
     
     intFeitas++;
 });
+
 
 // QUIZ
 //https://github.com/jchamill/jquery-quiz
@@ -202,27 +223,39 @@ $('#quiz').quiz({
     nextButtonText: 'Continuar',
     finishButtonText: 'Finalizar',
     restartButtonText: '',
-    questions: [{
-            'q': 'Essa é a primeira pergunta',
+    questions: [
+        {
+            'q': 'O que significa HTML?',
             'options': [
-                'A-) Essa é uma resposta incorreta, ela não soma pontos.',
-                'B-) Essa é uma resposta CORRETA, se quiser somar pontos, clique nela!',
-                'C-) Essa é uma resposta incorreta, ela não soma pontos.'
+                '<label class="radiocontainer " id="label1" onclick="clickRadio(this)" > Hiperlinks e linguagem de marcação de texto<input type="radio" name="quiz" id="radio1" value="radio1"><span class="checkmark unCheckedRadio" id="check1"></span></label>',
+                '<label class="radiocontainer " id="label2" onclick="clickRadio(this)" > Linguagem de marcação de hipertexto<input type="radio" name="quiz" id="radio2" value="radio2"><span class="checkmark unCheckedRadio" id="check2"></span></label>',
+                '<label class="radiocontainer " id="label3" onclick="clickRadio(this)" > Linguagem de marcação da ferramenta inicial<input type="radio" name="quiz" id="radio3" value="radio3"><span class="checkmark unCheckedRadio" id="check3"></span></label>',
             ],
             'correctIndex': 1,
-            'correctResponse': 'Acertou!',
-            'incorrectResponse': 'Errou!'
+            'correctResponse': 'Você Acertou!',
+            'incorrectResponse': 'Você Errou!'
         },
         {
-            'q': 'Essa é a segunda pergunta.',
+            'q': 'Qual das alternativas a seguir está correta?',
             'options': [
-                'A-) Essa é uma resposta incorreta, ela não soma pontos.',
-                'B-) Essa é uma resposta CORRETA, se quiser somar pontos, clique nela!',
-                'C-) Essa é uma resposta incorreta, ela não soma pontos.'
+                '<label class="radiocontainer " id="label4" onclick="clickRadio(this)" > JQuery é uma biblioteca JSON<input type="radio" name="quiz" id="radio4" value="radio4"><span class="checkmark unCheckedRadio" id="check4"></span></label>',
+                '<label class="radiocontainer " id="label5" onclick="clickRadio(this)" > JQuery é uma biblioteca JavaScript<input type="radio" name="quiz" id="radio5" value="radio5"><span class="checkmark unCheckedRadio" id="check5"></span></label>',
             ],
             'correctIndex': 1,
-            'correctResponse': 'Acertou!',
-            'incorrectResponse': 'Errou!'
+            'correctResponse': 'Você Acertou!',
+            'incorrectResponse': 'Você Errou!'
+        },
+        {
+            'q': 'O que CSS significa?',
+            'options': [
+                '<label class="radiocontainer " id="label6" onclick="clickRadio(this)" > Folhas de estilo criativo (Creative Style Sheets)<input type="radio" name="quiz" id="radio6" value="radio6"><span class="checkmark unCheckedRadio" id="check6"></span></label>',
+                '<label class="radiocontainer " id="label7" onclick="clickRadio(this)" > Folhas de estilo em cascata (Cascading Style Sheets)<input type="radio" name="quiz" id="radio7" value="radio7"><span class="checkmark unCheckedRadio" id="check7"></span></label>',
+                '<label class="radiocontainer " id="label8" onclick="clickRadio(this)" > Folhas de estilo de computador (Computer Style Sheets)<input type="radio" name="quiz" id="radio8" value="radio8"><span class="checkmark unCheckedRadio" id="check8"></span></label>',
+                '<label class="radiocontainer " id="label9" onclick="clickRadio(this)" > Folhas de estilo coloridas (Colorful Style Sheets)<input type="radio" name="quiz" id="radio9" value="radio9"><span class="checkmark unCheckedRadio" id="check9"></span></label>',
+            ],
+            'correctIndex': 1,
+            'correctResponse': 'Você Acertou!',
+            'incorrectResponse': 'Você Errou!'
         }
     ],
 
@@ -230,8 +263,9 @@ $('#quiz').quiz({
 
     answerCallback: function(currentQuestion, selected, questions) {
         if (selected === questions.correctIndex) {
-            totalScore += 50;
+            totalScore += notaTotalQuiz / qtdQuestionsQuiz;
         }
+        completedQuestion(currentQuestion)
     },
 
     // nextCallback: function() {
@@ -239,10 +273,11 @@ $('#quiz').quiz({
     // },
 
     finishCallback: function(total) {
-        $('#quiz-results').html('Pontuação final: ' + totalScore + ' pontos');
-        setCompleted(3)
-        intFeitas++;
+        $('#quiz-results').html('Pontuação final: ' + parseFloat(totalScore).toFixed(2) + ' pontos');
+        const questions = $('[question=completed]');
         $('.quiz-total-container').attr('scorm', 'completed')
+        if (questions.length == 3)
+            setCompleted(3)
     },
 
     // homeCallback: function() {
