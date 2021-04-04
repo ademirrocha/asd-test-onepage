@@ -77,6 +77,16 @@ function navigateTo(elem, time = 1000){
   return false;
 }
 
+function modalClose(){
+  if($('#background').hasClass('d-flex')){
+    $('#background').removeClass('d-flex');
+    $('#background').addClass('d-none');
+  }else{
+    $('#background').removeClass('d-none');
+    $('#background').addClass('d-flex');
+  }
+}
+
 $('#background').click(function(){
   $('.navbar-toggler-icon').click()
 })
@@ -96,13 +106,7 @@ $('.nav-link').click(function(){
 })
 
 $('.navbar-toggler-icon').click(function(){
-  if($($('#background')).is(":visible")){
-    $('#background').removeClass('d-flex');
-    $('#background').addClass('d-none');
-  }else{
-    $('#background').removeClass('d-none');
-    $('#background').addClass('d-flex');
-  }
+  modalClose()
 })
 
 
