@@ -513,16 +513,35 @@ background-color: #fff;
     background: white;
 }
 
-a[href="#inicio"]{
-    padding:10px;
-    position:fixed;
+.glyphicon-up{
+    position: fixed;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    width: 60px;
+    height: 60px;
     top: 90%;
-    right:40px;
-    display:none;
+    right: 40px;
+    display: none;
     font-size: 30px;
+    color: #007bff;
+    border: solid 3px #007bff;
 }
-a[href="#inicio"]:hover{
+.glyphicon-up:hover, #quiz-next-btn, #quiz-finish-btn{
     text-decoration:none;
+
+}
+
+#quiz-next-btn:hover, #quiz-finish-btn:hover{
+    background-color: #007bffb4;
+}
+
+#background{
+    position: fixed;
+    top: 0;
+    background-color: rgba(27, 60, 90, 0.616);
+    width: 100%;
+    height: 100%;
 }
 
 footer{

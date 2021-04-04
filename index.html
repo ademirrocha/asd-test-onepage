@@ -41,14 +41,14 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#inicio">INICIO <span class="sr-only">(current)</span></a>
+            <a class="nav-link navigate" href="#" onclick="navigateTo('inicio');">INICIO <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">HTML5&raquo;CSS3&raquo;JQUERY</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item " href="#sobre-html5">Conhecendo o HTML5</a>
-              <a class="dropdown-item" href="#sobre-css">Conhecendo o CSS3</a>
-              <a class="dropdown-item" href="#sobre-jquery">Conhecendo o JQuery</a>
+              <a class="dropdown-item navigate" onclick="navigateTo('sobre-html5');" href="#">Conhecendo o HTML5</a>
+              <a class="dropdown-item navigate" onclick="navigateTo('sobre-css');" href="#">Conhecendo o CSS3</a>
+              <a class="dropdown-item navigate" onclick="navigateTo('sobre-jquery');" href="#">Conhecendo o JQuery</a>
             </div>
           </li>
           <li class="nav-item dropdown ">
@@ -59,19 +59,19 @@
               <li class="dropdown-submenu dropright">
                 <a class="dropdown-item dropdown-toggle" href="#">Seçao 1</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#1">Cartões</a></li>
+                  <li><a class="dropdown-item navigate" onclick="navigateTo('1');" href="#">Cartões</a></li>
                 </ul>
               </li>
               <li class="dropdown-submenu dropright ">
                 <a class="dropdown-item dropdown-toggle" href="#">Seçao 2</a>
                 <ul class="dropdown-menu">
-                  <li><a id="navFor2" class="dropdown-item disabled" href="#2">Vídeo</a></li>
+                  <li><a id="navFor2" class="dropdown-item navigate disabled" onclick="navigateTo('2');" href="#">Vídeo</a></li>
                 </ul>
               </li>
               <li class="dropdown-submenu dropright ">
                 <a class="dropdown-item dropdown-toggle" href="#">Seçao 3</a>
                 <ul class="dropdown-menu">
-                  <li><a id="navFor3" class="dropdown-item disabled" href="#3">Quiz</a></li>
+                  <li><a id="navFor3" class="dropdown-item navigate disabled" onclick="navigateTo('3');" href="#">Quiz</a></li>
                 </ul>
               </li>
             </ul>
@@ -99,7 +99,7 @@
             também aprenderemos a usar o framework jQuery, um famoso framework que ajuda a facilitar o 
             desenvolvimento com Javascript.
           </p>
-          <p><a class="btn btn-primary btn-lg" href="#1" role="button">Vamos começar? &raquo;</a></p>
+          <p><a class="btn btn-primary btn-lg" href="#" onclick="navigateTo('1');" role="button">Vamos começar? &raquo;</a></p>
         </div>
       </div>
 
@@ -346,7 +346,9 @@
         </div>
 
         <!-- /container -->
-        <a href="#inicio" class="glyphicon glyphicon-chevron-up"></a>
+        <a alt="Voltar ao inicio" title="Voltar ao inicio" id="upInicio" href="#inicio" class="glyphicon-up rounded-circle"><i class="fas fa-sort-up" style="font-size: 48px;"></i></a>
+        <div class="d-none" id="background"> - </div>
+
       </main>
     </div>
     <footer class="footer">

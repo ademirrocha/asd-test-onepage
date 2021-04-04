@@ -111,17 +111,19 @@ function setCompleted(idCompleto) {
 
     $(`#${idCompleto}`).attr('completed', 'true');
     var prox = idCompleto + 1;
+    if (parseInt(intFeitasSc.length + 1) < totalInt) {
+        $(`#${idCompleto}-block`).addClass('d-none');
+        $(`#${idCompleto}-block`).removeClass('d-flex');
+        $(`#${prox}-block`).removeClass('d-none');
+        $(`#${prox}-block`).addClass('d-flex');
 
-    $(`#${idCompleto}-block`).addClass('d-none');
-    $(`#${idCompleto}-block`).removeClass('d-flex');
-    $(`#${prox}-block`).removeClass('d-none');
-    $(`#${prox}-block`).addClass('d-flex');
-
-    $(`#${prox}`).removeClass('d-none');
-    $(`#${prox}`).addClass('d-flex');
+        $(`#${prox}`).removeClass('d-none');
+        $(`#${prox}`).addClass('d-flex');
+    }
 
     $('#navFor' + parseInt(idCompleto+1)).removeClass('disabled')
-    window.location.href = window.location.pathname + `#${parseInt(idCompleto+1)}`
+    
+    
 
     prog["prog"][idCompleto] = true;
 
@@ -148,6 +150,8 @@ function setCompleted(idCompleto) {
             finalizarScorm(progInner[0]);
         else
             finalizarScorm(totalScore);
+    }else{
+        navigateTo(parseInt(idCompleto+1), 2000)
     }
 }
 
